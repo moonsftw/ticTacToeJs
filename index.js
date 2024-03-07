@@ -27,11 +27,11 @@ function startGame() {
 
 function setBoardHover(crossTurn) {
   console.log(`Turno de la X? ${crossTurn}`)
-  console.log(boardElement.classList)
+  console.log(boardElement.classList.value)
 
-  crossTurn ? 
-    boardElement.classList.replace('cross-plays', 'circle-plays') : 
-    boardElement.classList.replace('circle-plays', 'cross-plays');
+  crossTurn ?
+    boardElement.classList.replace('circle-plays', 'cross-plays') :
+    boardElement.classList.replace('cross-plays', 'circle-plays');
 }
 
 /* function clearBoardHover() {
@@ -48,13 +48,15 @@ function handleClick(e) {
   placeMark(cell, currentMark);
   if (currentMarkWins(currentMark)) {
     alert(`WINS: ${currentMark}`);
-  } else if (boardIsFull()) {
-    alert(`It's a DRAW!`);
-  } else {
-    swapTurns();
-    setBoardHover(crossTurn);
+    return;
   }
 
+  if (boardIsFull()) {
+    alert(`It's a DRAW!`);
+    return;
+  }
+  swapTurns();
+  setBoardHover(crossTurn);
 }
 
 function placeMark(cell, markToAdd) {

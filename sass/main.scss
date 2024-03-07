@@ -69,9 +69,9 @@ $border-width: 0.3rem;
 }
 
 .cross::after,
-.cross::before/* ,
-.board.cross-plays .cell:not(.cross):not(.circle):hover::after 
-.board.cross-plays .cell:not(.cross):not(.circle):hover::before */ {
+.cross::before,
+.board.cross-plays .cell:not(.cross):not(.circle):hover::after, 
+.board.cross-plays .cell:not(.cross):not(.circle):hover::before {
   content: '';
   width: 0;
   height: calc($mark-size * 1.25);
@@ -83,17 +83,17 @@ $border-width: 0.3rem;
 }
 
 
-.cross::after/* ,
-.board.cross-plays .cell:not(.cross):not(.circle):hover::after */ {
+.cross::after,
+.board.cross-plays .cell:not(.cross):not(.circle):hover::after {
   transform: translate(-50%, -50%) rotate(45deg);
 }
 
-.cross::before/* ,
-.board.cross-plays .cell:not(.cross):not(.circle):hover::before  */{
+.cross::before,
+.board.cross-plays .cell:not(.cross):not(.circle):hover::before {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-/* .board.cross-plays .cell:not(.cross):not(.circle):hover::after,
+.board.cross-plays .cell:not(.cross):not(.circle):hover::after,
 .board.cross-plays .cell:not(.cross):not(.circle):hover::before {
   border-left: $mark-border-hover;
-} */
+}

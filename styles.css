@@ -49,7 +49,9 @@
 }
 
 .cross::after,
-.cross::before {
+.cross::before,
+.board.cross-plays .cell:not(.cross):not(.circle):hover::after,
+.board.cross-plays .cell:not(.cross):not(.circle):hover::before {
   content: "";
   width: 0;
   height: 87.5%;
@@ -59,17 +61,19 @@
   left: 50%;
 }
 
-.cross::after {
+.cross::after,
+.board.cross-plays .cell:not(.cross):not(.circle):hover::after {
   transform: translate(-50%, -50%) rotate(45deg);
 }
 
-.cross::before {
+.cross::before,
+.board.cross-plays .cell:not(.cross):not(.circle):hover::before {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-/* .board.cross-plays .cell:not(.cross):not(.circle):hover::after,
+.board.cross-plays .cell:not(.cross):not(.circle):hover::after,
 .board.cross-plays .cell:not(.cross):not(.circle):hover::before {
-  border-left: $mark-border-hover;
-} */
+  border-left: 0.5rem solid rgba(0, 0, 0, 0.1);
+}
 
 /*# sourceMappingURL=styles.css.map */
