@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+
+.board {
+  margin: 0 auto;
+  width: 80vh;
+  aspect-ratio: 1/1;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+}
+.board .cell {
+  height: 100%;
+  border: 0.2rem solid black;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.board :nth-child(-n+3) { /* representa los primeros tres elementos */
+  border-top: none;
+}
+.board :nth-child(3n+1) {
+  border-left: none;
+}
+.board :nth-child(3n) {
+  border-right: none;
+}
+.board :nth-last-child(-n+3) {
+  border-bottom: none;
+}
+
+.cell::after {
+  content: "";
+  width: 70%;
+  height: 70%;
+  color: black;
+  border-radius: 50%;
+  border: 0.5rem solid black;
+}
+
+/*# sourceMappingURL=styles.css.map */

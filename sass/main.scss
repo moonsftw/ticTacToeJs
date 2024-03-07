@@ -1,0 +1,52 @@
+$color-border: black;
+$color-mark: black;
+$color-mark-hover: gray;
+
+$cell-size: 100%;
+$mark-size: 70%;
+$mark-border: .5rem solid $color-mark;
+
+$border-width: 0.2rem;
+*{
+  box-sizing: border-box;
+}
+.board {
+  margin: 0 auto;
+  width: 80vh;
+  aspect-ratio: 1 / 1;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  .cell {
+    height: $cell-size;
+    border: $border-width solid $color-border;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  & :nth-child(-n+3){ /* representa los primeros tres elementos */
+    border-top: none;
+  }
+
+  & :nth-child(3n + 1) { //* El & se usa para referirse a la clase anterior, en este caso .cell */
+    border-left: none;
+  }
+  & :nth-child(3n) {
+    border-right: none;
+  }
+
+  & :nth-last-child(-n+3){
+    border-bottom: none;
+  }
+}
+
+.cell::after {
+  content: '';
+  width: $mark-size;
+  height: $mark-size;
+  color: $color-mark;
+  border-radius: 50%;
+  border: $mark-border;
+}
+
