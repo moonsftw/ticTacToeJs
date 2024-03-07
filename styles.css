@@ -1,4 +1,6 @@
-* {
+*,
+*::after,
+*::before {
   box-sizing: border-box;
 }
 
@@ -11,11 +13,9 @@
 }
 .board .cell {
   height: 100%;
-  border: 0.2rem solid black;
-  aspect-ratio: 1/1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  border: 0.3rem solid black;
+  cursor: pointer;
+  position: relative;
 }
 .board :nth-child(-n+3) { /* representa los primeros tres elementos */
   border-top: none;
@@ -30,13 +30,35 @@
   border-bottom: none;
 }
 
-.cell::after {
+.circle::after {
   content: "";
   width: 70%;
   height: 70%;
-  color: black;
   border-radius: 50%;
   border: 0.5rem solid black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cross::after,
+.cross::before {
+  content: "";
+  width: 0;
+  height: 87.5%;
+  border-left: 0.5rem solid black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.cross::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.cross::before {
+  transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 /*# sourceMappingURL=styles.css.map */

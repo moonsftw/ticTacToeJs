@@ -6,10 +6,13 @@ $cell-size: 100%;
 $mark-size: 70%;
 $mark-border: .5rem solid $color-mark;
 
-$border-width: 0.2rem;
-*{
+$border-width: 0.3rem;
+*, 
+*::after, 
+*::before{
   box-sizing: border-box;
 }
+
 .board {
   margin: 0 auto;
   width: 80vh;
@@ -19,10 +22,9 @@ $border-width: 0.2rem;
   .cell {
     height: $cell-size;
     border: $border-width solid $color-border;
-    aspect-ratio: 1 / 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    cursor: pointer;
+    position: relative;    
+    
   }
 
   & :nth-child(-n+3){ /* representa los primeros tres elementos */
@@ -41,12 +43,33 @@ $border-width: 0.2rem;
   }
 }
 
-.cell::after {
+.circle::after {
   content: '';
   width: $mark-size;
   height: $mark-size;
-  color: $color-mark;
   border-radius: 50%;
   border: $mark-border;
+
+  position: absolute;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
+.cross::after,
+.cross::before {
+  content: '';
+  width: 0;
+  height: calc($mark-size * 1.25);
+  border-left: $mark-border;
+
+  position: absolute;
+  top: 50%; 
+  left: 50%;
+}
+.cross::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.cross::before {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
