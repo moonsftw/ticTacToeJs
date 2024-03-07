@@ -17,7 +17,8 @@
   cursor: pointer;
   position: relative;
 }
-.board :nth-child(-n+3) { /* representa los primeros tres elementos */
+.board :nth-child(-n+3) {
+  /* representa los primeros tres elementos */
   border-top: none;
 }
 .board :nth-child(3n+1) {
@@ -30,7 +31,8 @@
   border-bottom: none;
 }
 
-.circle::after {
+.circle::after,
+.board.circle-plays .cell:not(.cross):not(.circle):hover::after {
   content: "";
   width: 70%;
   height: 70%;
@@ -40,6 +42,10 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.board.circle-plays .cell:not(.cross):not(.circle):hover::after {
+  border: 0.5rem solid rgba(0, 0, 0, 0.1);
 }
 
 .cross::after,
@@ -60,5 +66,10 @@
 .cross::before {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
+
+/* .board.cross-plays .cell:not(.cross):not(.circle):hover::after,
+.board.cross-plays .cell:not(.cross):not(.circle):hover::before {
+  border-left: $mark-border-hover;
+} */
 
 /*# sourceMappingURL=styles.css.map */
