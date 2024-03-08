@@ -1,47 +1,48 @@
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
-}
-
-:root {
-  font-size: 62.5%;
-}
+@use 'variables' as *;
 
 .board {
   margin: 0 auto;
   width: 80vh;
-  aspect-ratio: 1/1;
+  aspect-ratio: 1 / 1;
   display: grid;
   grid-template-columns: repeat(3, auto);
+
+  & .cell {
+    height: $cell-size;
+    border: $border-width solid $color-border;
+    cursor: pointer;
+    position: relative;
+
+  }
+
+  & :nth-child(-n+3) {
+    /* representa los primeros tres elementos */
+    border-top: none;
+  }
+
+  & :nth-child(3n + 1) {
+    //* El & se usa para referirse a la clase anterior, en este caso .cell */
+    border-left: none;
+  }
+
+  & :nth-child(3n) {
+    border-right: none;
+  }
+
+  & :nth-last-child(-n+3) {
+    border-bottom: none;
+  }
 }
-.board .cell {
-  height: 100%;
-  border: 0.3rem solid black;
-  cursor: pointer;
-  position: relative;
-}
-.board :nth-child(-n+3) {
-  /* representa los primeros tres elementos */
-  border-top: none;
-}
-.board :nth-child(3n+1) {
-  border-left: none;
-}
-.board :nth-child(3n) {
-  border-right: none;
-}
-.board :nth-last-child(-n+3) {
-  border-bottom: none;
-}
+
 
 .circle::after,
 .board.circle-plays .cell:not(.cross):not(.circle):hover::after {
-  content: "";
-  width: 70%;
-  height: 70%;
+  content: '';
+  width: $mark-size;
+  height: $mark-size;
   border-radius: 50%;
-  border: 0.5rem solid black;
+  border: $mark-border;
+
   position: absolute;
   top: 50%;
   left: 50%;
@@ -49,21 +50,23 @@
 }
 
 .board.circle-plays .cell:not(.cross):not(.circle):hover::after {
-  border: 0.5rem solid rgba(0, 0, 0, 0.1);
+  border: $mark-border-hover;
 }
 
 .cross::after,
 .cross::before,
-.board.cross-plays .cell:not(.cross):not(.circle):hover::after,
+.board.cross-plays .cell:not(.cross):not(.circle):hover::after, 
 .board.cross-plays .cell:not(.cross):not(.circle):hover::before {
-  content: "";
+  content: '';
   width: 0;
-  height: 87.5%;
-  border-left: 0.5rem solid black;
+  height: calc($mark-size * 1.25);
+  border-left: $mark-border;
+
   position: absolute;
   top: 50%;
   left: 50%;
 }
+
 
 .cross::after,
 .board.cross-plays .cell:not(.cross):not(.circle):hover::after {
@@ -77,12 +80,5 @@
 
 .board.cross-plays .cell:not(.cross):not(.circle):hover::after,
 .board.cross-plays .cell:not(.cross):not(.circle):hover::before {
-  border-left: 0.5rem solid rgba(0, 0, 0, 0.1);
+  border-left: $mark-border-hover;
 }
-
-.container {
-  margin: 0 auto;
-  text-align: center;
-}
-
-/*# sourceMappingURL=styles.css.map */
