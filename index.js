@@ -2,7 +2,10 @@ const boardElement = document.querySelector('#board');
 const cellElements = document.querySelectorAll('#cell');
 const dialogElement = document.querySelector('dialog');
 const modalMessageElement = document.querySelector('#winner-message')
-console.log(dialogElement);
+const crossesScoreElement = document.querySelector('[crosses-score]');
+const circlesScoreElement = document.querySelector('[circles-score]')
+const resetButton = document.querySelector('[reset-btn]')
+
 /* Globals */
 let crossTurn = true; //Primer turno: las cruces
 const crossClass = 'cross';
@@ -20,9 +23,17 @@ const winningCombinations = [
   [2, 4, 6],
 ];
 
+let crossesCumulativeScore = 0;
+let circlesCumulativeScore = 0;
+
 startGame();
 
 boardElement.addEventListener('click', handleClick); //(e) => handleClick(e) aquí el evento se pasa explicitamente
+dialogElement.addEventListener('close', () => {
+  resetGame();
+  updateScoreOnBoard();  
+});
+
 
 function startGame() {
   setBoardHover(crossTurn);
@@ -38,16 +49,20 @@ function clearBoard() {
 }
 
 function setBoardHover(crossTurn) {
-  
-
   crossTurn ?
     boardElement.classList.replace('circle-plays', 'cross-plays') :
     boardElement.classList.replace('cross-plays', 'circle-plays');
 }
 
-/* function clearBoardHover() {
-  boardElement.classList.remove('cross-plays')
-} */
+function updateScoreOnBoard() {
+  if(crossesScoreElement !== crossesCumulativeScore){
+    crossesScoreElement.textContent = crossesCumulativeScore;
+  }
+  if(circlesScoreElement !== circlesCumulativeScore){
+    circlesScoreElement.textContent = circlesCumulativeScore;
+  }
+
+}
 
 function handleClick(e) {
   const cell = e.target;
@@ -58,19 +73,25 @@ function handleClick(e) {
 
   placeMark(cell, currentMark);
   if (currentMarkWins(currentMark)) {
+    incrementScore(currentMark);    
     showWinner(currentMark);
-    /* alert(`WINS: ${currentMark}`); */
-    startGame();
     return;
   }
 
   if (boardIsFull()) {
     showDraw();
-    startGame();
     return;
   }
   swapTurns();
   setBoardHover(crossTurn);
+}
+
+function incrementScore(winner) {
+  if (winner === crossClass ){
+    crossesCumulativeScore++;
+  } else {
+    circlesCumulativeScore++;
+  }
 }
 
 function placeMark(cell, markToAdd) {
@@ -102,6 +123,11 @@ function showModal(message){
 function showWinner(currentMark) {
   showModal(`${currentMark} wins!`);
 }
+
+function resetGame(){
+  startGame();
+}
+
 function showDraw(){
   showModal("It's a DRAW!")
 }

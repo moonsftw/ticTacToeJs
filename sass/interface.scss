@@ -1,5 +1,18 @@
 @use 'variables' as *;
 
+
+ dialog {
+  font-size: $lg-text;
+  text-shadow: $shadow-text;
+
+  padding: 2rem;
+  background: $color-secondary-lighter;
+  color:$color-letra-toast;
+  border-radius: $corner-elements;
+  border-width: 0px;
+
+
+}
 .container {
   margin: 0 auto;
   text-align: center;
@@ -16,24 +29,7 @@
 
   box-shadow: 0px 2rem 0px -5px $color-secondary;
 
-  & dialog {
-    position: relative;
-   /*  top: 50%;
-    left: 50%;
-    transform: translate(-100%, -100%); */
-    font-size: $lg-text;
-    text-shadow: $shadow-text;
-
-    padding: 2rem;
-    background: $color-secondary-lighter;
-    color:$color-letra-toast;
-    border-radius: $corner-elements;
-    border-width: 0px;
-
-  
-  }
-
-  & nav {
+  & .scores {
     display: flex;
     flex-direction: row;
     justify-content: space-around;

@@ -113,6 +113,16 @@ button:active {
   border-left: 0.5rem solid rgba(57, 181, 224, 0.4);
 }
 
+dialog {
+  font-size: 5rem;
+  text-shadow: 0px 4px 0px rgb(163, 26, 203);
+  padding: 2rem;
+  background: rgb(255, 120, 240);
+  color: white;
+  border-radius: 1rem;
+  border-width: 0px;
+}
+
 .container {
   margin: 0 auto;
   text-align: center;
@@ -126,33 +136,20 @@ button:active {
   gap: 2rem;
   box-shadow: 0px 2rem 0px -5px rgb(163, 26, 203);
 }
-.container dialog {
-  position: relative;
-  /*  top: 50%;
-   left: 50%;
-   transform: translate(-100%, -100%); */
-  font-size: 5rem;
-  text-shadow: 0px 4px 0px rgb(163, 26, 203);
-  padding: 2rem;
-  background: rgb(255, 120, 240);
-  color: white;
-  border-radius: 1rem;
-  border-width: 0px;
-}
-.container nav {
+.container .scores {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
   flex-wrap: nowrap;
 }
-.container nav .score {
+.container .scores .score {
   font-size: 3rem;
 }
-.container nav .score-crosses {
+.container .scores .score-crosses {
   color: rgb(57, 181, 224);
 }
-.container nav .score-circles {
+.container .scores .score-circles {
   color: rgb(255, 120, 240);
 }
 
