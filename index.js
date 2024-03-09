@@ -33,6 +33,7 @@ dialogElement.addEventListener('close', () => {
   resetGame();
   updateScoreOnBoard();  
 });
+resetButton.addEventListener('click', resetCumulativeScore);
 
 
 function startGame() {
@@ -62,6 +63,12 @@ function updateScoreOnBoard() {
     circlesScoreElement.textContent = circlesCumulativeScore;
   }
 
+}
+
+function resetCumulativeScore() {
+  crossesCumulativeScore = 0;
+  circlesCumulativeScore = 0;
+  updateScoreOnBoard();
 }
 
 function handleClick(e) {
