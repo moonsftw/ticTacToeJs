@@ -1,5 +1,6 @@
 const boardElement = document.querySelector('#board');
 const cellElements = document.querySelectorAll('#cell');
+const dialogElement = document.getElementsByTagName('dialog');
 /* Globals */
 let crossTurn = true; //Primer turno: las cruces
 const crossClass = 'cross';

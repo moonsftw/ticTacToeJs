@@ -1,10 +1,37 @@
-$color-border: black;
-$color-mark: black;
-$color-mark-hover: rgba(0, 0, 0, .1);
+//Colors
+$color-primary: rgb(57, 181, 224);
+$color-secondary: rgb(163, 26, 203);
+$color-secondary-darker: rgba(140, 22, 176, 0.721);
+$color-secondary-lighter: rgb(255, 120, 240);
+$color-constrast: rgb(245, 234, 90);
 
+//Tamaños
 $cell-size: 100%;
 $mark-size: 70%;
-$mark-border: .5rem solid $color-mark;
-$mark-border-hover: .5rem solid $color-mark-hover;
-
 $border-width: 0.3rem;
+$mark-line-width: 0.5rem;
+$corner-elements: 1rem;
+$xl-text: 7rem;
+$lg-text: 5rem;
+$md-text: 3rem;
+
+
+//Board and marks
+$color-border: $color-secondary;
+$color-cross: $color-primary;
+$color-circle: $color-secondary-lighter;
+$color-mark-hover-cross: rgba(57, 181, 224, .4);
+$color-mark-hover-circle: rgba(255, 120, 240, .4);
+$mark-border-cross: $mark-line-width solid $color-cross;
+$mark-border-circle: $mark-line-width solid $color-circle;
+$mark-border-hover-cross: $mark-line-width solid $color-mark-hover-cross;
+$mark-border-hover-circle: $mark-line-width solid $color-mark-hover-circle;
+
+//Button
+$color-letra-buttons: white;
+$bg-buttons: $color-secondary;
+$shadow-button: 0px 5px 0px 0px $color-secondary-darker;
+
+$color-letra-toast: white;
+$shadow-text-h1: 0px 5px 0px $color-constrast;
+$shadow-text: 0px 4px 0px $color-secondary;

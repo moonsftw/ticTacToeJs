@@ -2,7 +2,7 @@
 
 .board {
   margin: 0 auto;
-  width: 80vh;
+  width: 60%;
   aspect-ratio: 1 / 1;
   display: grid;
   grid-template-columns: repeat(3, auto);
@@ -41,7 +41,7 @@
   width: $mark-size;
   height: $mark-size;
   border-radius: 50%;
-  border: $mark-border;
+  border: $mark-border-circle;
 
   position: absolute;
   top: 50%;
@@ -50,7 +50,7 @@
 }
 
 .board.circle-plays .cell:not(.cross):not(.circle):hover::after {
-  border: $mark-border-hover;
+  border: $mark-border-hover-circle;
 }
 
 .cross::after,
@@ -60,7 +60,7 @@
   content: '';
   width: 0;
   height: calc($mark-size * 1.25);
-  border-left: $mark-border;
+  border-left: $mark-border-cross;
 
   position: absolute;
   top: 50%;
@@ -80,5 +80,5 @@
 
 .board.cross-plays .cell:not(.cross):not(.circle):hover::after,
 .board.cross-plays .cell:not(.cross):not(.circle):hover::before {
-  border-left: $mark-border-hover;
+  border-left: $mark-border-hover-cross;
 }

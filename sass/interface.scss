@@ -1,4 +1,55 @@
+@use 'variables' as *;
+
 .container {
   margin: 0 auto;
   text-align: center;
+  padding: 2rem;
+  border-radius: $corner-elements;
+  background-color: white;
+
+  width: 50%;
+
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 2rem;
+
+  box-shadow: 0px 2rem 0px -5px $color-secondary;
+
+  & dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-75%, -50%);
+    font-size: $lg-text;
+    text-shadow: $shadow-text;
+
+    padding: 2rem;
+    background: $color-secondary-lighter;
+    color:$color-letra-toast;
+    border-radius: $corner-elements;
+    border-width: 0px;
+
+  
+  }
+
+  & nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
+
+      & .score {
+        font-size: $md-text;
+      }
+      & .score-crosses {
+        color: $color-cross;
+      }
+      & .score-circles {
+        color: $color-circle;
+      }
+
+    
+  }
 }
