@@ -1,6 +1,8 @@
 const boardElement = document.querySelector('#board');
 const cellElements = document.querySelectorAll('#cell');
-const dialogElement = document.getElementsByTagName('dialog');
+const dialogElement = document.querySelector('dialog');
+const modalMessageElement = document.querySelector('#winner-message')
+console.log(dialogElement);
 /* Globals */
 let crossTurn = true; //Primer turno: las cruces
 const crossClass = 'cross';
@@ -36,8 +38,7 @@ function clearBoard() {
 }
 
 function setBoardHover(crossTurn) {
-  console.log(`Turno de la X? ${crossTurn}`)
-  console.log(boardElement.classList.value)
+  
 
   crossTurn ?
     boardElement.classList.replace('circle-plays', 'cross-plays') :
@@ -57,13 +58,14 @@ function handleClick(e) {
 
   placeMark(cell, currentMark);
   if (currentMarkWins(currentMark)) {
-    alert(`WINS: ${currentMark}`);
+    showWinner(currentMark);
+    /* alert(`WINS: ${currentMark}`); */
     startGame();
     return;
   }
 
   if (boardIsFull()) {
-    alert(`It's a DRAW!`);
+    showDraw();
     startGame();
     return;
   }
@@ -91,4 +93,15 @@ function boardIsFull() {
   return [...cellElements].every(cell => {
     return cell.classList.contains(crossClass) || cell.classList.contains(circleClass);
   })
+}
+
+function showModal(message){
+  modalMessageElement.textContent = message;
+  dialogElement.showModal();
+}
+function showWinner(currentMark) {
+  showModal(`${currentMark} wins!`);
+}
+function showDraw(){
+  showModal("It's a DRAW!")
 }
