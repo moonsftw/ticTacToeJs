@@ -1,5 +1,6 @@
 //Colors
 $color-primary: rgb(57, 181, 224);
+$color-primary-darker: rgba(57, 182, 224, 0.71);
 $color-secondary: rgb(163, 26, 203);
 $color-secondary-darker: rgba(140, 22, 176, 0.721);
 $color-secondary-lighter: rgb(255, 120, 240);
@@ -35,3 +36,5 @@ $shadow-button: 0px 5px 0px 0px $color-secondary-darker;
 $color-letra-toast: white;
 $shadow-text-h1: 0px 5px 0px $color-constrast;
 $shadow-text: 0px 4px 0px $color-secondary;
+$shadow-circles: 0px 4px 0px $color-secondary-darker;
+$shadow-cross: 3px 6px 0px $color-primary-darker;

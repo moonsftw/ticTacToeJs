@@ -10,9 +10,13 @@
   color:$color-letra-toast;
   border-radius: $corner-elements;
   border-width: 0px;
-
-
 }
+
+dialog::backdrop {
+  /* background-color: rgba(0, 0, 0, 0.75); */
+  backdrop-filter: blur(5px) grayscale(50%);
+}
+
 .container {
   margin: 0 auto;
   text-align: center;

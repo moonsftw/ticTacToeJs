@@ -51,6 +51,7 @@
 
 .board.circle-plays .cell:not(.cross):not(.circle):hover::after {
   border: $mark-border-hover-circle;
+  
 }
 
 .cross::after,
@@ -71,6 +72,7 @@
 .cross::after,
 .board.cross-plays .cell:not(.cross):not(.circle):hover::after {
   transform: translate(-50%, -50%) rotate(45deg);
+
 }
 
 .cross::before,
